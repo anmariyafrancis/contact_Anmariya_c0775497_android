@@ -22,14 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter  First Name:"
-        android:textStyle="italic" />
+        android:textStyle="normal" />
 
     <EditText
         android:id="@+id/update_Lname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Last Name:"
-        android:textStyle="italic" />
+        android:textStyle="normal" />
 
     <EditText
         android:id="@+id/update_phone"
@@ -44,14 +44,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Email ID"
-        android:textStyle="italic" />
+        android:textStyle="normal" />
 
     <EditText
         android:id="@+id/update_Address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Address"
-        android:textStyle="italic" />
+        android:textStyle="normal" />
 
     <Button
         android:id="@+id/btn_update_emp"

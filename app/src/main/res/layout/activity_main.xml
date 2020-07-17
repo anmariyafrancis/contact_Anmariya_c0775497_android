@@ -28,37 +28,38 @@
             android:id="@+id/etFname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter First Name:"
-            android:textStyle="italic" />
+            android:hint="Enter First Name"
+            android:textStyle="normal" />
 
         <EditText
             android:id="@+id/etLname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Last Name:"
-            android:textStyle="italic" />
+            android:hint="Enter Last Name"
+            android:textStyle="normal" />
 
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
-            android:hint="Enter Phone Number:"
-            android:inputType="number" />
+            android:hint="Enter Phone Number"
+            android:inputType="number"
+            android:textStyle="normal" />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Email ID:"
-            android:textStyle="italic" />
+            android:hint="Enter Email ID"
+            android:textStyle="normal" />
 
         <EditText
             android:id="@+id/etAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Address:"
-            android:textStyle="italic" />
+            android:hint="Enter Address"
+            android:textStyle="normal" />
 
         <Button
             android:id="@+id/btnAddPerson"

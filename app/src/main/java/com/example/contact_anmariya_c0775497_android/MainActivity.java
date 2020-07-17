@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         address.setText("");
         email.setText("");
         loadData();
-        tv.setText("You have "+loadData()+" Contacts");
+        tv.setText("No.of contacts:"+loadData());
     }
 
     @Override
