@@ -32,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
     List<PersonModel> personList;
     List<PersonModel> searchList;
 
+    SwipeMenuListView listView;
+    public static final String SELECTED_PERSON = "selectedPerson";
+    PersonAdapter personAdapter;
+    TextView tvNoItem;
+    EditText etSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
