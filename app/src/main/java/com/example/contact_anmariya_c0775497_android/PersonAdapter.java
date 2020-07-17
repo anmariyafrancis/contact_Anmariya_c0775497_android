@@ -103,7 +103,7 @@ public class PersonAdapter extends ArrayAdapter {
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle("Update Person");
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        final View customLayout = inflater.inflate(R.layout.update_user, null);
+        final View customLayout = inflater.inflate(R.layout.update_contact, null);
         builder.setView(customLayout);
 
         final EditText updateFName = customLayout.findViewById(R.id.update_Fname);
