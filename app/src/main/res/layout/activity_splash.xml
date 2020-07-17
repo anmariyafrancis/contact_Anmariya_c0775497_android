@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#CDF6EFB0"
+    android:background="#BE6A674B"
     android:orientation="vertical">
 
     <ImageView
@@ -19,7 +19,7 @@
         android:layout_height="45dp"
         android:text="Get in touch....."
         android:textAlignment="center"
-        android:textColor="#F44336"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 </LinearLayout>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDF6EFB0"
+    android:background="#ABFFEB3B"
     android:orientation="horizontal"
     android:padding="8dp">
 
@@ -66,7 +67,7 @@
             android:layout_margin="5dp"
             android:background="#4CAF50"
             android:text="UPDATE"
-            android:textColor="#ECF7F2" />
+            android:textColor="#0A0B0A" />
 
         <Button
             android:id="@+id/btn_delete"
@@ -78,4 +79,11 @@
 
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_delete" />
 </LinearLayout>
