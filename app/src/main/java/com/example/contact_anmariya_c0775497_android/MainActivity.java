@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDatabase = new DataBaseHelper(this);
         loadData();
 
-        tv.setText("You have "+loadData()+" Contacts");
+        tv.setText("No.of contacts : "+loadData());
     }
 
     private int loadData() {
