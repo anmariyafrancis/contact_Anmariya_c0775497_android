@@ -1,18 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#5100BCD4"
+
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Add New Contact"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold|italic" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <TableRow
+
+            android:id="@+id/row1"
+            android:layout_margin="5dp">
+
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="First Name"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+
+        <TableRow
+
+            android:id="@+id/row2"
+            android:layout_margin="5dp">
+
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Last Name"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+
+            android:id="@+id/row3"
+            android:layout_margin="5dp">
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Number"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+
+            android:id="@+id/row4"
+            android:layout_margin="5dp">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Email"
+                android:textColor="#000000" />
+
+        </TableRow>
+
+        <TableRow
+
+            android:id="@+id/row5"
+            android:layout_margin="5dp">
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Address"
+                android:textColor="#000000" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+
+        android:id="@+id/add"
+        android:layout_width="121dp"
+        android:layout_height="28dp"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="20dp"
+        android:background="#4CAF50"
+        android:text="ADD" />
+
+    <Button
+
+        android:id="@+id/phoneList"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="#FFC107"
+        android:text="Show Contacts" />
+
+    <Button
+
+        android:id="@+id/countButton"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="#F44336"
+        android:text="No.of Contacts" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="118dp"
+        android:layout_height="13dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+</LinearLayout>
