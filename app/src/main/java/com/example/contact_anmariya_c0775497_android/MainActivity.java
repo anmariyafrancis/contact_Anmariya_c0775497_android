@@ -1,99 +1,154 @@
 package com.example.contact_anmariya_c0775497_android;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    DatabaseHelper mDataBase;
+import java.util.ArrayList;
 
-    EditText firstName;
-    EditText lastName;
-    EditText phone;
-    EditText email;
-    EditText address;
-    TextView count;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    EditText fname,lname,phone,address, email;
+    DataBaseHelper mDatabase;
+    TextView tv;
+    ArrayList<String> number;
+    boolean isSame = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fname = findViewById(R.id.etFname);
+        lname = findViewById(R.id.etLname);
+        phone = findViewById(R.id.etPhone);
+        address = findViewById(R.id.etAddress);
+        email = findViewById(R.id.etEmail);
+        tv =  findViewById(R.id.tvViewData);
 
-        firstName = findViewById(R.id.firstName);
-        lastName = findViewById(R.id.lastName);
-        phone = findViewById(R.id.phoneNumber);
-        email = findViewById(R.id.email);
-        address = findViewById(R.id.address);
-        count = findViewById(R.id.count);
+        findViewById(R.id.btnAddPerson).setOnClickListener(this);
+        findViewById(R.id.tvViewData).setOnClickListener(this);
 
-        findViewById(R.id.add).setOnClickListener(this);
-        findViewById(R.id.phoneList).setOnClickListener(this);
-        findViewById(R.id.countButton).setOnClickListener(this);
-        mDataBase = new DatabaseHelper(this);
+        mDatabase = new DataBaseHelper(this);
+        loadData();
+
+        tv.setText("You have "+loadData()+" Contacts");
     }
+
+    private int loadData() {
+
+        Cursor c = mDatabase.getAllData();
+        number = new ArrayList<>();
+        if (c.moveToFirst()){
+
+
+            do {
+                number.add(c.getString(3));
+
+            }while (c.moveToNext());
+            c.close();
+
+        }
+        return c.getCount();
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        fname.setText("");
+        lname.setText("");
+        phone.setText("");
+        address.setText("");
+        email.setText("");
+        loadData();
+        tv.setText("You have "+loadData()+" Contacts");
+    }
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.add:
-                addPerson();
+        switch (v.getId()){
+            case R.id.btnAddPerson:
+                addPersonData();
                 break;
-            case R.id.phoneList:
-                //start activity to another activity to use the list of employees
-                Intent intent = new Intent(MainActivity.this, PersonActivity.class);
+
+            case R.id.tvViewData:
+                Intent intent = new Intent(this,ShowUser.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-
                 break;
 
-            case R.id.countButton:
-                long i = mDataBase.getTaskCount();
-                count.setText(String.valueOf(i));
-                Toast.makeText(this, "counted", Toast.LENGTH_SHORT).show();
-                break;
         }
     }
 
-    private void addPerson() {
+    private void addPersonData() {
 
-        String first_name = firstName.getText().toString().trim();
-        String last_name = lastName.getText().toString().trim();
-        String phone_number = phone.getText().toString().trim();
-        String email_address = email.getText().toString().trim();
-        String addr = address.getText().toString().trim();
+        String fName = fname.getText().toString().trim();
+        String lName = lname.getText().toString().trim();
+        String mPhone = phone.getText().toString().trim();
+        String mAddress = address.getText().toString().trim();
+        String mEmail = email.getText().toString().trim();
 
-        if (first_name.isEmpty()){
-            firstName.setError("First Name field is empty");
-            firstName.requestFocus();
+        if (fName.isEmpty()){
+            fname.setError("Name field is required");
+            fname.requestFocus();
             return;
         }
-        if (last_name.isEmpty()){
-            lastName.setError("last Name field is empty");
-            lastName.requestFocus();
+        if (lName.isEmpty()){
+            lname.setError("Last Name cannot be empty");
+            lname.requestFocus();
             return;
         }
-
-        if (phone_number.isEmpty()){
-            phone.setError("phone number field is empty");
+        if (mPhone.isEmpty()){
+            phone.setError("Phone Number cannot be empty");
             phone.requestFocus();
             return;
         }
-        if (email_address.isEmpty()){
-            email.setError("Email field is empty");
-            email.requestFocus();
-            return;
-        }
-        if (addr.isEmpty()){
-            address.setError("address field is empty");
+        if (mAddress.isEmpty()){
+            address.setError("Address cannot be empty");
             address.requestFocus();
             return;
         }
+        if (mEmail.isEmpty()){
+            email.setError("Email cannot be empty");
+            email.requestFocus();
+            return;
+        }
+        for (int i =0;i<number.size();i++){
+            if (number.contains(mPhone)){
+                isSame = true;
+            }
+            else {
+                isSame = false;
+            }
+        }
+        if (!isSame){
+
+            if (mDatabase.addEmployee(fName,lName,mPhone,mAddress,mEmail)){
+                Toast.makeText(this, "Person added", Toast.LENGTH_SHORT).show();
+            }else {
+                // Toast.makeText(this, "Person  not added", Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Phone Number Already Exist");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
 
     }
-
 }
