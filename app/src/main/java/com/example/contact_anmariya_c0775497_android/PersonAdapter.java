@@ -62,7 +62,7 @@ public class PersonAdapter extends ArrayAdapter {
         v.findViewById(R.id.btn_delete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteEmoloyee(person);
+                deletePerson(person);
             }
         });
 
@@ -70,9 +70,9 @@ public class PersonAdapter extends ArrayAdapter {
 
     }
 
-    private void deleteEmoloyee(final Person person) {
+    private void deletePerson(final Person person) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle("Are you sure?");
+        builder.setTitle("Are you sure you want to delete this contact?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -87,7 +87,7 @@ public class PersonAdapter extends ArrayAdapter {
 
             }
         });
-        builder.setNegativeButton("no", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -101,7 +101,7 @@ public class PersonAdapter extends ArrayAdapter {
 
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle("Update Person");
+        builder.setTitle("Update Contact");
         LayoutInflater inflater = LayoutInflater.from(mContext);
         final View customLayout = inflater.inflate(R.layout.update_contact, null);
         builder.setView(customLayout);
@@ -132,38 +132,38 @@ public class PersonAdapter extends ArrayAdapter {
                 String email = updateEmail.getText().toString().trim();
 
                 if (fname.isEmpty()){
-                    updateFName.setError("Name is Mandadory");
+                    updateFName.setError("First Name is required");
                     updateFName.requestFocus();
                     return;
 
                 }
                 if (lname.isEmpty()){
-                    updateLName.setError("Last Name is Mandadory");
+                    updateLName.setError("Last Name is required");
                     updateLName.requestFocus();
                     return;
                 }
                 if (phone.isEmpty()){
-                    updatePhone.setError("Phone Number is Mandadory");
+                    updatePhone.setError("Phone Number is required");
                     updatePhone.requestFocus();
                     return;
                 }
                 if (address.isEmpty()){
-                    updateAddress.setError("Address is Mandadory");
+                    updateAddress.setError("Address is required");
                     updateAddress.requestFocus();
                     return;
                 }
 
                 if (email.isEmpty()){
-                    updateEmail.setError("Email is Mandadory");
+                    updateEmail.setError("Email is required");
                     updateEmail.requestFocus();
                     return;
                 }
 
                 if (mDatabase.updatePersonData(person.getId(),fname,lname,phone,address,email)){
-                    Toast.makeText(mContext, "PERSON DATA UPDATED", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Contact updated", Toast.LENGTH_SHORT).show();
                     loadData();
                 }else {
-                    Toast.makeText(mContext, "PERSON DATA  NOT UPDATED", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Contact updated", Toast.LENGTH_SHORT).show();
                 }
 
                 alertDialog.dismiss();
@@ -195,7 +195,7 @@ public class PersonAdapter extends ArrayAdapter {
 
     private void loadData() {
 
-        String sql = "SELECT * FROM employees";
+        String sql = "SELECT * FROM person";
         Cursor c = mDatabase.getAllData();
         personList.clear();
         if (c.moveToFirst()){

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6600BCD4"
+    android:background="#CDF6EFB0"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -50,7 +50,7 @@
         android:id="@+id/update_Address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Address Name:"
+        android:hint="Enter Address"
         android:textStyle="italic" />
 
     <Button

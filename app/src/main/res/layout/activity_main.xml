@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6600BCD4"
+    android:background="#CDF6EFB0"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -18,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:text="Add New Contacts"
+            android:text="Add New Contact "
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
-            android:hint="Phone Number:"
+            android:hint="Enter Phone Number:"
             android:inputType="number" />
 
         <EditText
@@ -57,16 +57,16 @@
             android:id="@+id/etAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address:"
+            android:hint="Enter Address:"
             android:textStyle="italic" />
 
         <Button
             android:id="@+id/btnAddPerson"
-            android:layout_width="521dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#4CAF50"
             android:text="DONE"
-            android:textColor="#050505"
+            android:textColor="#0B0A0A"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -77,7 +77,7 @@
             android:background="#F44336"
             android:gravity="center"
             android:padding="16dp"
-            android:text="VIEW CONTACTS"
+            android:text="View Conatcts"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="24sp"
             android:textStyle="bold" />

@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String mEmail = email.getText().toString().trim();
 
         if (fName.isEmpty()){
-            fname.setError("Name field is required");
+            fname.setError("First Name cannot be empty");
             fname.requestFocus();
             return;
         }
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (!isSame){
 
             if (mDatabase.addEmployee(fName,lName,mPhone,mAddress,mEmail)){
-                Toast.makeText(this, "Person added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "New Contact added", Toast.LENGTH_SHORT).show();
             }else {
                 // Toast.makeText(this, "Person  not added", Toast.LENGTH_SHORT).show();
             }
