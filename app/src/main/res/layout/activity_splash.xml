@@ -12,4 +12,14 @@
         android:layout_gravity="center"
         android:paddingTop="500px"
         android:src="@drawable/contact" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Get in touch....."
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
 </LinearLayout>
