@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.tvViewData:
-                Intent intent = new Intent(this,ShowUser.class);
+                Intent intent = new Intent(this,ViewContacts.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
