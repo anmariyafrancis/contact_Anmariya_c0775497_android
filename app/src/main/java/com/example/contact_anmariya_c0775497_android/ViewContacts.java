@@ -31,7 +31,7 @@ public class ViewContacts extends AppCompatActivity {
         personList = new ArrayList<>();
         loadData();
 
-        personAdpter = new PersonAdapter(this,R.layout.cell_user,personList,mDatabase);
+        personAdpter = new PersonAdapter(this,R.layout.cell_contact,personList,mDatabase);
         listView.setTextFilterEnabled(true);
         listView.setAdapter(personAdpter);
 
