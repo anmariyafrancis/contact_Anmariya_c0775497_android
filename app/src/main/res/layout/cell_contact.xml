@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ABFFEB3B"
+    android:background="#BED3C333"
     android:orientation="horizontal"
     android:padding="8dp">
 
@@ -65,7 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#4CAF50"
+            android:background="#F4F8F4"
+            android:drawableRight="@android:drawable/ic_menu_edit"
             android:text="UPDATE"
             android:textColor="#0A0B0A" />
 
@@ -74,7 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#F44336"
+            android:background="#F4F8F4"
+            android:drawableRight="@android:drawable/ic_delete"
             android:text="REMOVE" />
 
 
